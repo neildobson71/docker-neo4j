@@ -5,19 +5,19 @@ Neo4j is a highly scalable, robust (fully ACID) native graph database. Neo4j is 
 
 With the Dockerfile on repository you've a docker neo4j community edition image ready to go.
 
-#### Docker Hub Registry
-This project is automatically built and deployed [here](https://registry.hub.docker.com/u/tpires/neo4j).
 
 ### Setup
-0. (Optional) Install the image:
+1. Build and run:
 
-  `docker pull tpires/neo4j`
+  `git clone https://github.com/neildobson71/neo4j`
+  `cd neo4j`
+  `docker build .`
 
-1. Create and start the container:
+1. Create and start the container (with no authorization, port 20001):
 
-	`docker run -i -t -d --name neo4j --cap-add=SYS_RESOURCE -p 7474:7474 tpires/neo4j`
+  `docker run -i -t -d -e NEO4J_AUTH=none --name neo4j --cap-add=SYS_RESOURCE -p 20001:7474 <image-id>`
 
-2. Access to http://localhost:7474 with your browser.
+2. Access to http://neo4j-server:20001 with your browser.
 
 #### Authentication
 You can add authorization credentials or disable authorization by passing `NEO4J_AUTH` as environment variable.
