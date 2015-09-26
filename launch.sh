@@ -5,7 +5,7 @@ NEO4J_HOME=/var/lib/neo4j
 if [ -n "$NEO4J_AUTH" ]; then
   if [ "$NEO4J_AUTH" == "none" ]; then
       echo 'disabling authentication'
-      echo 'dbms.security.auth_enabled=false' >> $NEO4J_HOME/conf/neo4j-server.properties
+      sed -i "s|dbms.security.auth_enabled=true|dbms.security.auth_enabled=false|g" $NEO4J_HOME/conf/neo4j-server.properties
   else
       echo "will use custom credentials"
       mkdir -p $NEO4J_HOME/data/dbms
