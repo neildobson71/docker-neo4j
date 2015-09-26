@@ -9,15 +9,17 @@ With the Dockerfile on repository you've a docker neo4j community edition image 
 ### Setup
 1. Build and run:
 
-  `git clone https://github.com/neildobson71/neo4j`
-  `cd neo4j`
-  `docker build .`
+```
+git clone https://github.com/neildobson71/neo4j
+cd neo4j
+docker build .
+```
 
-1. Create and start the container (with no authorization, port 20001):
+2. Create and start the container (with no authorization, port 20001):
 
   `docker run -i -t -d -e NEO4J_AUTH=none --name neo4j --cap-add=SYS_RESOURCE -p 20001:7474 <image-id>`
 
-2. Access to http://neo4j-server:20001 with your browser.
+3. Access to http://neo4j-server:20001 with your browser.
 
 #### Authentication
 You can add authorization credentials or disable authorization by passing `NEO4J_AUTH` as environment variable.
