@@ -16,6 +16,7 @@ docker build .
 Create and start the container (with no authorization, port 20001):
 
 `docker run -i -t -d -e NEO4J_AUTH=none --name neo4j -v $HOME/neo4j-data:/data --cap-add=SYS_RESOURCE -p 20001:7474 <image-id>`
+
 Access to http://neo4j-server:20001 with your browser.
 
 #### Authentication
