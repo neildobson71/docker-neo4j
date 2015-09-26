@@ -24,6 +24,7 @@ add build_auth_string.sh /
 run chmod +x /launch.sh && chmod +x /build_auth_string.sh && \
     apt-get clean && \
     sed -i "s|#allow_store_upgrade|allow_store_upgrade|g" /var/lib/neo4j/conf/neo4j.properties && \
+    sed -i "s|.*keep_logical_logs=.*|keep_logical_logs=100M size|g" /var/lib/neo4j/conf/neo4j.properties && \
     echo "execution_guard_enabled=true" >> /var/lib/neo4j/conf/neo4j.properties && \
     echo "remote_shell_host=0.0.0.0" >> /var/lib/neo4j/conf/neo4j.properties && \
     sed -i "s|org.neo4j.server.webadmin.rrdb.location=.*|org.neo4j.server.webadmin.rrdb.location=/tmp/rrd|g" /var/lib/neo4j/conf/neo4j-server.properties && \
