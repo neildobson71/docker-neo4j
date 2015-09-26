@@ -29,14 +29,15 @@ run chmod +x /launch.sh && chmod +x /build_auth_string.sh && \
     echo "remote_shell_host=0.0.0.0" >> /var/lib/neo4j/conf/neo4j.properties && \
     sed -i "s|org.neo4j.server.webadmin.rrdb.location=.*|org.neo4j.server.webadmin.rrdb.location=/tmp/rrd|g" /var/lib/neo4j/conf/neo4j-server.properties && \
     echo "org.neo4j.server.webserver.limit.executiontime=120000" >> /var/lib/neo4j/conf/neo4j-server.properties && \
-    echo "wrapper.java.additional.3=-Dfile.encoding=UTF-8" >> /var/lib/neo4j/conf/neo4j-wrapper.conf && \
-    echo "wrapper.java.additional.1=-d64" >> /var/lib/neo4j/conf/neo4j-wrapper.conf && \
-    echo "wrapper.java.additional.1=-server" >> /var/lib/neo4j/conf/neo4j-wrapper.conf && \
-    echo "wrapper.java.additional.1=-Xss2048k" >> /var/lib/neo4j/conf/neo4j-wrapper.conf && \
     echo "wrapper.java.additional.1=-Xmx3072m" >> /var/lib/neo4j/conf/neo4j-wrapper.conf && \
-    echo "wrapper.java.additional.2=-Dcom.sun.management.jmxremote.port=6666" >> /var/lib/neo4j/conf/neo4j-wrapper.conf && \
-    echo "wrapper.java.additional.2=-Dcom.sun.management.jmxremote.ssl=false" >> /var/lib/neo4j/conf/neo4j-wrapper.conf && \
-    echo "wrapper.java.additional.2=-Dcom.sun.management.jmxremote.authenticate=false" >> /var/lib/neo4j/conf/neo4j-wrapper.conf
+    echo "wrapper.java.additional.2=-Xms3072m" >> /var/lib/neo4j/conf/neo4j-wrapper.conf && \
+    echo "wrapper.java.additional.3=-Dfile.encoding=UTF-8" >> /var/lib/neo4j/conf/neo4j-wrapper.conf && \
+    echo "wrapper.java.additional.4=-d64" >> /var/lib/neo4j/conf/neo4j-wrapper.conf && \
+    echo "wrapper.java.additional.5=-server" >> /var/lib/neo4j/conf/neo4j-wrapper.conf && \
+    echo "wrapper.java.additional.6=-Xss2048k" >> /var/lib/neo4j/conf/neo4j-wrapper.conf && \
+    echo "wrapper.java.additional.7=-Dcom.sun.management.jmxremote.port=6666" >> /var/lib/neo4j/conf/neo4j-wrapper.conf && \
+    echo "wrapper.java.additional.8=-Dcom.sun.management.jmxremote.ssl=false" >> /var/lib/neo4j/conf/neo4j-wrapper.conf && \
+    echo "wrapper.java.additional.9=-Dcom.sun.management.jmxremote.authenticate=false" >> /var/lib/neo4j/conf/neo4j-wrapper.conf
     
 VOLUME /data
 
