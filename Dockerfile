@@ -11,8 +11,7 @@ maintainer Neil Dobson, neil.dobson71@gmail.com
 run wget -O - http://debian.neo4j.org/neotechnology.gpg.key | apt-key add - && \
     echo 'deb http://debian.neo4j.org/repo stable/' > /etc/apt/sources.list.d/neo4j.list && \
     apt-get update ; apt-get install neo4j -y ; apt-get install bsdmainutils -y && \
-    ln -s /var/lib/neo4j/data /data && \
-    touch /tmp/rrd
+    ln -s /var/lib/neo4j/data /data
 
 ## add launcher and set execute property
 ## clean sources
@@ -27,7 +26,6 @@ run chmod +x /launch.sh && chmod +x /build_auth_string.sh && \
     sed -i "s|.*keep_logical_logs=.*|keep_logical_logs=100M size|g" /var/lib/neo4j/conf/neo4j.properties && \
     echo "execution_guard_enabled=true" >> /var/lib/neo4j/conf/neo4j.properties && \
     echo "remote_shell_host=0.0.0.0" >> /var/lib/neo4j/conf/neo4j.properties && \
-    sed -i "s|org.neo4j.server.webadmin.rrdb.location=.*|org.neo4j.server.webadmin.rrdb.location=/tmp/rrd|g" /var/lib/neo4j/conf/neo4j-server.properties && \
     echo "org.neo4j.server.webserver.limit.executiontime=120000" >> /var/lib/neo4j/conf/neo4j-server.properties && \
     echo "wrapper.java.additional.1=-Xmx3072m" >> /var/lib/neo4j/conf/neo4j-wrapper.conf && \
     echo "wrapper.java.additional.2=-Xms3072m" >> /var/lib/neo4j/conf/neo4j-wrapper.conf && \
