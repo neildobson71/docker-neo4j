@@ -10,7 +10,8 @@ maintainer Neil Dobson, neil.dobson71@gmail.com
 
 run wget -O - http://debian.neo4j.org/neotechnology.gpg.key | apt-key add - && \
     echo 'deb http://debian.neo4j.org/repo stable/' > /etc/apt/sources.list.d/neo4j.list && \
-    apt-get update ; apt-get install neo4j -y ; apt-get install bsdmainutils -y
+    apt-get update ; apt-get install neo4j -y ; apt-get install bsdmainutils -y && \
+    ln -s /var/lib/neo4j/data /data
 
 ## add launcher and set execute property
 ## clean sources
@@ -34,6 +35,8 @@ run chmod +x /launch.sh && chmod +x /build_auth_string.sh && \
     echo "wrapper.java.additional.2=-Dcom.sun.management.jmxremote.ssl=false" >> /var/lib/neo4j/conf/neo4j-wrapper.conf && \
     echo "wrapper.java.additional.2=-Dcom.sun.management.jmxremote.authenticate=false" >> /var/lib/neo4j/conf/neo4j-wrapper.conf
     
+VOLUME /data
+
 # expose REST and shell server ports
 expose 7474
 expose 1337
