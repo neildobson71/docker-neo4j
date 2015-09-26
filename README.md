@@ -5,16 +5,25 @@ Neo4j is a highly scalable, robust (fully ACID) native graph database. Neo4j is 
 
 With the Dockerfile on repository you've a docker neo4j community edition image ready to go.
 
+1. abc
+```javascript
+$(function(){
+  $('div').html('I am a div.');
+});
+```
+2. def
+3. fff
+4. 
+
 
 ### Setup
-1. Build and run:
 
+1. Build and run:
 ```
 git clone https://github.com/neildobson71/neo4j
 cd neo4j
 docker build .
 ```
-
 2. Create and start the container (with no authorization, port 20001):
 
   `docker run -i -t -d -e NEO4J_AUTH=none --name neo4j --cap-add=SYS_RESOURCE -p 20001:7474 <image-id>`
