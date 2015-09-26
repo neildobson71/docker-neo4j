@@ -22,7 +22,7 @@ add build_auth_string.sh /
 run chmod +x /launch.sh && chmod +x /build_auth_string.sh && \
     apt-get clean && \
     sed -i "s|#allow_store_upgrade|allow_store_upgrade|g" /var/lib/neo4j/conf/neo4j.properties && \
-    echo "execution_guard_enabled" >> /var/lib/neo4j/conf/neo4j.properties && \
+    echo "execution_guard_enabled=true" >> /var/lib/neo4j/conf/neo4j.properties && \
     echo "remote_shell_host=0.0.0.0" >> /var/lib/neo4j/conf/neo4j.properties && \
     echo "org.neo4j.server.webserver.limit.executiontime=120000" >> /var/lib/neo4j/conf/neo4j-server.properties && \
     echo "wrapper.java.additional.3=-Dfile.encoding=UTF-8" >> /var/lib/neo4j/conf/neo4j-wrapper.conf && \
