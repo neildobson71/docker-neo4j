@@ -15,7 +15,8 @@ fi
 
 # NEO4J_HEAP_MEMORY=2G
 if [ -n "$NEO4J_HEAP_MEMORY" ]; then
-	sed -i -e "s|.*wrapper.java.additional=.*|wrapper.java.additional=-Xmx${NEO4J_HEAP_MEMORY}|g" $NEO4J_HOME/conf/neo4j-wrapper.conf
+	sed -i -e "s|.*wrapper.java.additional.1=.*|wrapper.java.additional.1=-Xmx${NEO4J_HEAP_MEMORY}|g" $NEO4J_HOME/conf/neo4j-wrapper.conf
+	sed -i -e "s|.*wrapper.java.additional.2=.*|wrapper.java.additional.2=-Xms${NEO4J_HEAP_MEMORY}|g" $NEO4J_HOME/conf/neo4j-wrapper.conf
 fi
 
 # NEO4J_CACHE_MEMORY=2G
