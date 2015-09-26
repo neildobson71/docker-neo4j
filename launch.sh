@@ -13,6 +13,16 @@ if [ -n "$NEO4J_AUTH" ]; then
   fi
 fi
 
+# NEO4J_HEAP_MEMORY=2G
+if [ -n "$NEO4J_HEAP_MEMORY" ]; then
+	sed -i -e "s|.*wrapper.java.additional=.*|wrapper.java.additional=-Xmx${NEO4J_HEAP_MEMORY}|g" $NEO4J_HOME/conf/neo4j-wrapper.conf
+fi
+
+# NEO4J_CACHE_MEMORY=2G
+if [ -n "$NEO4J_CACHE_MEMORY" ]; then
+	sed -i -e "s|.*dbms.pagecache.memory=.*|dbms.pagecache.memory=${NEO4J_CACHE_MEMORY}|g" $NEO4J_HOME/conf/neo4j.properties
+fi
+
 sed -i "s|#org.neo4j.server.webserver.address=0.0.0.0|org.neo4j.server.webserver.address=$HOSTNAME|g" $NEO4J_HOME/conf/neo4j-server.properties
 
 # doing this conditionally in case there is already a limit higher than what
